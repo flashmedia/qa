@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webtop>
+	<section id="qa" label="Question and Answer">
+		<subsection id="qasubsection" label="QA">
+			<menu id="qamenu" label="Questions">
+				<menuitem id="listquestions" sequence="10" label="Questions" link="/admin/customadmin.cfm?plugin=qa&amp;module=qaQuestion.cfm" relatedtype="qaQuestion" />
+			</menu>
+		</subsection>
+	</section>
+</webtop>
