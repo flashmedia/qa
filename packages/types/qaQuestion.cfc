@@ -1,4 +1,4 @@
-<cfcomponent extends="farcry.core.packages.types.types" hint="A question asked on the forum." displayname="QA Question" bFriendly="true" bAudit="true">
+<cfcomponent extends="farcry.core.packages.types.types" hint="A question asked on the forum." displayname="QA Question" fualias="question" bFriendly="true" bAudit="true">
 
 	<cfproperty
 		name="title" type="string" required="no" default=""
