@@ -14,10 +14,13 @@
 		<skin:breadcrumb separator=" <span class='divider'>&gt;</span> " here="Questions">
 		<cfoutput>
 	</div>
+	<div class="questions">
 </cfoutput>
  
 <cfloop query="stLocal.qQuestions">
   <skin:view typename="qaQuestion" objectid="#stlocal.qQuestions.objectid#" webskin="displayTeaserStandard" />
 </cfloop>
+
+<cfoutput></div></cfoutput>
  
 <cfsetting enablecfoutputonly="false" />
