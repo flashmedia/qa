@@ -3,10 +3,25 @@
 
 <cfimport taglib="/farcry/core/tags/webskin" prefix="skin" />
 
-<cfdump var="#form#" />
-
 <cfparam name="form.question" default="" />
 <cfparam name="form.description" default="" />
+
+<cfif isDefined('form.submit')>
+
+	<cfscript>
+		stProperties = StructNeW();
+		stProperties.title = form.question;
+		stProperties.label = form.question;
+		stProperties.description = form.description;
+
+		stResult = application.fapi.getContentType('qaQuestion').createData(stProperties=stProperties);
+	</cfscript>
+
+	<cfif stResult.bSuccess>
+		<cflocation url="#application.fapi.getLink(objectid=stResult.objectid)#" addtoken="false" />
+	</cfif>
+	
+</cfif>
 
 <cfoutput>
 	<div class="header">
@@ -33,7 +48,7 @@
 				</div>
 
 				<div class="form-actions">
-					<button type="submit" class="btn">Sign in</button>
+					<button type="submit" class="btn" name="submit">Sign in</button>
 				</div>
 
 			</fieldset>
