@@ -16,25 +16,27 @@
 	<div class="questions">
 
 		<form method="POST">
+			<fieldset>
 
-			<div class="control-group">
-				<label class="control-label" for="question">Question</label>
-				<div class="controls">
-					<input type="text" name="question" value="#form.question#" placeholder="Enter your question here...">
+				<div class="control-group">
+					<label class="control-label" for="question">Question</label>
+					<div class="controls">
+						<input type="text" class="input-block-level" name="question" value="#form.question#" placeholder="Enter your question here...">
+					</div>
 				</div>
-			</div>
 
-			<div class="control-group">
-				<label class="control-label" for="question">Description</label>
-				<div class="controls">
-					<textarea name="description" placeholder="Enter your question here...">#form.description#</textarea>
+				<div class="control-group">
+					<label class="control-label" for="description">Description</label>
+					<div class="controls">
+						<textarea class="input-block-level" name="description" rows="3">#form.description#</textarea>
+					</div>
 				</div>
-			</div>
 
-			<div class="control-group">
-				<input type="submit" name="submit" value="submit" />
-			</div>
+				<div class="form-actions">
+					<button type="submit" class="btn">Sign in</button>
+				</div>
 
+			</fieldset>
 		</form>
 
 	</div></cfoutput>
