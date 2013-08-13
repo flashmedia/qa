@@ -5,7 +5,7 @@
 <!--- tag libraries --->
 <cfimport taglib="/farcry/core/tags/webskin/" prefix="skin" />
 
-<cfset stLocal.qQuestions = application.fapi.getContentObjects(typename="qaQuestion",orderBy="datetimecreated") />
+<cfset stLocal.qQuestions = application.fapi.getContentObjects(typename="qaQuestion",orderBy="datetimecreated DESC") />
  
 <cfoutput>
 	<div class="header">
