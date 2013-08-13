@@ -8,11 +8,9 @@
 <cfset stLocal.qQuestions = application.fapi.getContentObjects(typename="qaQuestion",orderBy="datetimecreated") /> 
  
 <cfoutput>
-	<h1 class="main">Questions</h1>
-	<div id="breadCrumbs">
-		</cfoutput>
-		<skin:breadcrumb separator=" <span class='divider'>&gt;</span> " here="Questions">
-		<cfoutput>
+	<div class="header">
+		<h1 class="main">Questions</h1>
+		<button type="button" class="inputButtonBig">Ask A Question</button>
 	</div>
 	<div class="questions">
 </cfoutput>
