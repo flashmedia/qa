@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="form-actions">
-					<button type="submit" class="btn" name="submit">Sign in</button>
+					<button type="submit" class="btn" name="submit">Save question</button>
 				</div>
 
 			</fieldset>

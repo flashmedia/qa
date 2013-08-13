@@ -5,4 +5,9 @@
 		ftseq="1" ftlabel="Question" ftValidation="required" bLabel="true"
 		ftfieldset="Question overview" ftWizardStep="QA Question">
 
+	<cfproperty
+		name="description" type="longchar" required="no" default=""
+		ftseq="10" ftlabel="Description"
+		ftfieldset="Question overview" ftWizardStep="QA Question">
+
 </cfcomponent>
