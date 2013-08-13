@@ -5,12 +5,12 @@
 <!--- tag libraries --->
 <cfimport taglib="/farcry/core/tags/webskin/" prefix="skin" />
 
-<cfset stLocal.qQuestions = application.fapi.getContentObjects(typename="qaQuestion",orderBy="datetimecreated") /> 
+<cfset stLocal.qQuestions = application.fapi.getContentObjects(typename="qaQuestion",orderBy="datetimecreated") />
  
 <cfoutput>
 	<div class="header">
 		<h1 class="main">Questions</h1>
-		<button type="button" class="inputButtonBig">Ask A Question</button>
+		<button type="button" class="askButton" data-href="#application.fapi.getLink(alias='qa-ask')#">Ask A Question</button>
 	</div>
 	<div class="questions">
 </cfoutput>
