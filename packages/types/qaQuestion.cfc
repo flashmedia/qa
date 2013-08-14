@@ -10,4 +10,9 @@
 		ftseq="10" ftlabel="Description"
 		ftfieldset="Question overview" ftWizardStep="QA Question">
 
+	<cfproperty
+		name="aAnswers" type="array" required="no"
+		ftseq="20" ftLabel="Answers" ftType="array" ftJoin="qaAnswer"
+		ftfieldset="Question answers" ftWizardStep="QA Answers">
+
 </cfcomponent>
