@@ -38,7 +38,7 @@
 	<h2><skin:buildLink objectid="#stObj.objectid#">#stObj.title#</skin:buildLink></h2>
     <p class="by">Asked by <span>#sBy#</span></p>
     <p class="on">Asked <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
-    <p class="answers"><span>0</span> answers</p>
+    <p class="answers"><span>#ArrayLen(stObj.aAnswers)#</span> answers</p>
     </div>
 </cfoutput>
 
