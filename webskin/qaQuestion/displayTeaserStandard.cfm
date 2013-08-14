@@ -24,10 +24,19 @@
 <!--- IMPORT TAG LIBRARIES --->
 <cfimport taglib="/farcry/core/tags/webskin" prefix="skin">
 
+<!--- grab the profile to display --->
+<cftry>
+    <cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
+    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
+    <cfcatch type="any">
+        <cfset sBy = #stObj.createdBy# />
+    </cfcatch>
+</cftry>
+
 <cfoutput>
     <div class="question">
 	<h2><skin:buildLink objectid="#stObj.objectid#">#stObj.title#</skin:buildLink></h2>
-    <p class="by">Asked by <span>#stObj.createdBy#</span></p>
+    <p class="by">Asked by <span>#sBy#</span></p>
     <p class="on">Asked <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
     <p class="answers"><span>0</span> answers</p>
     </div>
