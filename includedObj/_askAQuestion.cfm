@@ -12,7 +12,7 @@
 		stProperties = StructNeW();
 		stProperties.title = form.question;
 		stProperties.label = form.question;
-		stProperties.description = form.description;
+		stProperties.description = htmlEditFormat(form.description);
 
 		stResult = application.fapi.getContentType('qaQuestion').createData(stProperties=stProperties);
 	</cfscript>
