@@ -18,10 +18,11 @@
  
 <cfoutput>
 	
-	<div class="header">
-		<h1 class="main">Ask A Mechanic</h1>
+	<div class="banner">
+		<h1>Ask A Mechanic</h1>
 		<button type="button" class="askButton" data-href="#application.fapi.getLink(alias='qa-ask')#">Ask A Question</button>
 	</div>
+	
 	<div class="tabs">
 		<ul>
 			<li class="selected" data-type="recent">Recent</li>
