@@ -38,8 +38,8 @@
 	<h2><skin:buildLink objectid="#stObj.objectid#">#stObj.title#</skin:buildLink></h2>
     <p class="by">Asked by <span>#sBy#</span></p>
     <p class="on">Asked <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
-    <p class="answers<cfif ArrayLen(stObj.aAnswers) GT 0> answered</cfif>"><span>#ArrayLen(stObj.aAnswers)#</span> answers</p>
-    <p class="views"><span>#ArrayLen(stObj.aViews)#</span> views</p>
+    <div class="answers<cfif ArrayLen(stObj.aAnswers) GT 0> answered</cfif>"><span class="badge">#ArrayLen(stObj.aAnswers)#</span> answers</div>
+    <div class="views"><span class="badge">#ArrayLen(stObj.aViews)#</span> views</div>
     </div>
 </cfoutput>
 

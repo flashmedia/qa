@@ -24,32 +24,24 @@
 </cfif>
 
 <cfoutput>
-	<div class="header">
-		<h1 class="main">Ask A Question</h1>
-		<button type="button" class="askButton" data-href="/question">Answer Questions</button>
-	</div>
+
 	<div class="questions">
 
-		<form method="POST">
+		<form method="POST" role="form">
+
 			<fieldset>
 
-				<div class="control-group">
-					<label class="control-label" for="question">Question</label>
-					<div class="controls">
-						<input type="text" class="input-block-level" name="question" value="#form.question#" placeholder="Enter your question here...">
-					</div>
+				<div class="form-group">
+					<label for="question">Question</label>
+					<input type="text" class="form-control" name="question" value="#form.question#" placeholder="Enter your question here...">
 				</div>
 
-				<div class="control-group">
-					<label class="control-label" for="description">Description</label>
-					<div class="controls">
-						<textarea class="input-block-level" name="description" rows="3">#form.description#</textarea>
-					</div>
+				<div class="form-group">
+					<label for="description">Description</label>
+					<textarea class="form-control" name="description" rows="3" placeholder="Place more detail about your question here...">#form.description#</textarea>
 				</div>
 
-				<div class="form-actions">
-					<button type="submit" class="btn" name="submit">Save question</button>
-				</div>
+				<button type="submit" class="btn btn-primary" name="submit">Save question</button>
 
 			</fieldset>
 		</form>

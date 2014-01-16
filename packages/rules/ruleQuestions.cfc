@@ -18,7 +18,7 @@
 <cfcomponent displayname="QA Questions: Listing Rule" extends="farcry.core.packages.rules.rules" hint="Displays active questions.">
 
 	<cfproperty ftSeq="1" ftFieldset="General" name="intro" type="longchar" hint="Intro text for the Events listing.  Can be any combination of content and HTML markup." required="false" default="" ftLabel="Intro Text" ftHint="This content will appear ABOVE your results." />
-	<cfproperty ftSeq="2" ftFieldset="General" name="displayMethod" type="string" hint="Display teaser method to render individual content items." required="true" default="displayTeaserStandard" ftType="webskin" fttypename="dmEvent" ftprefix="displayTeaser" ftLabel="Display Method" ftHint="This determines how each of your event results will render." />
+	<cfproperty ftSeq="2" ftFieldset="General" name="displayMethod" type="string" hint="Display teaser method to render individual content items." required="true" default="displayTeaserStandard" ftType="webskin" fttypename="qaQuestion" ftprefix="displayTeaser" ftLabel="Display Method" ftHint="This determines how each of your event results will render." />
 	<cfproperty ftSeq="3" ftFieldset="General" name="suffix" type="longchar" hint="Suffix text for the event listing.  Can be any combination of content and HTML markup." required="false" default="" ftLabel="Suffix Text" ftHint="This content will appear BELOW your results." />
 
 	<cfproperty ftSeq="10" ftFieldset="Results" name="numItems" type="numeric" hint="The number of items to display per page." required="true" default="5" ftType="numeric" ftIncludeDecimal="false" ftvalidation="validate-digits" ftLabel="## items per page" />

@@ -8,25 +8,21 @@
 <cfset stLocal.qQuestionsRecent = application.fapi.getContentObjects(typename="qaQuestion",lProperties='objectid',orderBy="datetimecreated DESC") />
 
 <cfquery name="stLocal.qQuestionsPopular" datasource="#application.dsn#">
-	SELECT qaQuestion.ObjectID, count(DISTINCT qaquestion_aviews.data) as viewcount, count(DISTINCT qaquestion_aanswers.data) as answercount
+	SELECT qaQuestion.ObjectID, count(DISTINCT qaQuestion_aViews.data) as viewcount, count(DISTINCT qaQuestion_aAnswers.data) as answercount
 	FROM qaQuestion
-	LEFT JOIN qaquestion_aanswers ON qaquestion_aanswers.parentid = qaQuestion.ObjectID
-	LEFT JOIN qaquestion_aviews ON qaquestion_aviews.parentid = qaQuestion.ObjectID
+	LEFT JOIN qaQuestion_aAnswers ON qaQuestion_aAnswers.parentid = qaQuestion.ObjectID
+	LEFT JOIN qaQuestion_aViews ON qaQuestion_aViews.parentid = qaQuestion.ObjectID
 	GROUP BY qaQuestion.ObjectID
 	ORDER BY viewcount DESC, answercount DESC, qaQuestion.datetimecreated DESC
 </cfquery>
  
 <cfoutput>
-	
-	<div class="banner">
-		<h1>Ask A Mechanic</h1>
-		<button type="button" class="askButton" data-href="#application.fapi.getLink(alias='qa-ask')#">Ask A Question</button>
-	</div>
-	
+
 	<div class="tabs">
-		<ul>
-			<li class="selected" data-type="recent">Recent</li>
-			<li data-type="popular">Popular</li>
+		<ul class="nav nav-tabs">
+			<li class="active" data-type="recent"><a href="##">Recent</a></li>
+			<li data-type="popular"><a href="##">Popular</a></li>
+			<li data-type="question" class="pull-right"><a href="#application.fapi.getLink(alias='qaaskaquestion')#">Ask A Question</a></li>
 		</ul>
 	</div>
 </cfoutput>
