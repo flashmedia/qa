@@ -24,18 +24,26 @@
 <!--- IMPORT TAG LIBRARIES --->
 <cfimport taglib="/farcry/core/tags/webskin" prefix="skin">
 
-<!--- grab the profile to display --->
-<cftry>
-    <cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
-    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
-    <cfcatch type="any">
-        <cfset sBy = #stObj.createdBy# />
-    </cfcatch>
-</cftry>
+    <!--- grab the profile to display --->
+    <cftry>
+
+    	<cfif isDefined('session.dmsec.authentication.canonicalname') AND session.dmsec.authentication.canonicalname EQ stObj.createdBy>
+    		<cfset sBy = 'you' />
+    	<cfelse>
+    		<cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
+    	    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
+    	</cfif>
+
+    	<cfcatch type="any">
+    		<cfdump var="#cfcatch#" />
+    		<cfset sBy = stObj.createdBy />
+    	</cfcatch>
+
+    </cftry>
 
 <!--- show textarea line breaks into HTML breaks --->
 <cfscript>
-    // www.cflib.org/udf/paragraphformat2   
+    // www.cflib.org/udf/paragraphformat2
     answer = stObj.answer;
     answer = replace(answer,chr(13)&chr(10),chr(10),"ALL");
     answer = replace(answer,chr(13),chr(10),"ALL");

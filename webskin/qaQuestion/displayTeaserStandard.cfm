@@ -26,11 +26,19 @@
 
 <!--- grab the profile to display --->
 <cftry>
-    <cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
-    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
-    <cfcatch type="any">
-        <cfset sBy = #stObj.createdBy# />
-    </cfcatch>
+
+	<cfif isDefined('session.dmsec.authentication.canonicalname') AND session.dmsec.authentication.canonicalname EQ stObj.createdBy>
+		<cfset sBy = 'you' />
+	<cfelse>
+		<cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
+	    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
+	</cfif>
+
+	<cfcatch type="any">
+		<cfdump var="#cfcatch#" />
+		<cfset sBy = stObj.createdBy />
+	</cfcatch>
+
 </cftry>
 
 <cfoutput>
