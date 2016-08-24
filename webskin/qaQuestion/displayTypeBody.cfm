@@ -29,12 +29,12 @@
 
 <cfoutput>
 
-	<div class="tabs">
+	<div class="tabs tabs-qa">
 		<ul class="nav nav-tabs">
 			<li class="active" data-type="recent"><a href="##">Recent</a></li>
 			<li data-type="popular"><a href="##">Popular</a></li>
-			<li data-type="question" class="pull-right"><a href="#application.fapi.getLink(alias=request.qaaskaquestionAlias)#">Ask A Question</a></li>
 		</ul>
+        <a class="btn btn-primary" href="#application.fapi.getLink(alias=request.qaaskaquestionAlias)#">Ask A Question</a></li>
 	</div>
 </cfoutput>
 
