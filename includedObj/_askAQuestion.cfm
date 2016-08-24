@@ -20,7 +20,7 @@
 	<cfif stResult.bSuccess>
 		<cflocation url="#application.fapi.getLink(objectid=stResult.objectid)#" addtoken="false" />
 	</cfif>
-	
+
 </cfif>
 
 <cfoutput>
@@ -41,7 +41,7 @@
 					<textarea class="form-control" name="description" rows="3" placeholder="Place more detail about your question here...">#form.description#</textarea>
 				</div>
 
-				<button type="submit" class="btn btn-primary" name="submit">Save question</button>
+				<button type="submit" class="btn btn-primary" name="submit">Post Question</button>
 
 			</fieldset>
 		</form>
