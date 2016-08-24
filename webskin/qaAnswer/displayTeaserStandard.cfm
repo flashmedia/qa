@@ -54,7 +54,7 @@
 <cfoutput>
     <div class="answer">
     <p class="content">#answer#</p>
-    <p class="by">Answered by <span>#sBy#</span></p>
+    <p class="by">Answered by <span class="user-name">#sBy#</span></p>
     <p class="on">Answered <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
     </div>
 </cfoutput>
