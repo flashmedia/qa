@@ -34,7 +34,7 @@
 			<li class="active" data-type="recent"><a href="##">Recent</a></li>
 			<li data-type="popular"><a href="##">Popular</a></li>
 		</ul>
-        <a class="btn btn-primary" href="#application.fapi.getLink(alias=request.qaaskaquestionAlias)#">Ask A Question</a></li>
+        <a class="btn btn-primary" href="#application.fapi.getLink(alias=request.qaaskaquestionAlias)#">Ask A Question</a>
 	</div>
 </cfoutput>
 
