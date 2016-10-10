@@ -1,34 +1,18 @@
 <cfsetting enablecfoutputonly="true" />
-<!--- @@Copyright: Daemon Pty Limited 2002-2008, http://www.daemon.com.au --->
-<!--- @@License:
-    This file is part of FarCry CMS Plugin.
-
-    FarCry CMS Plugin is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    FarCry CMS Plugin is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with FarCry CMS Plugin.  If not, see <http://www.gnu.org/licenses/>.
---->
-
-<!--- @@displayname: Standard Teaser --->
-<!--- @@author: Matthew Bryant (mbryant@daemon.com.au)--->
-
 
 <!--- IMPORT TAG LIBRARIES --->
 <cfimport taglib="/farcry/core/tags/webskin" prefix="skin">
+
+<cfparam name="stParam.question" default="#structNew()#" />
+
+<cfset stProfile = structNew() />
 
     <!--- grab the profile to display --->
     <cftry>
 
     	<cfif isDefined('session.dmsec.authentication.canonicalname') AND session.dmsec.authentication.canonicalname EQ stObj.createdBy>
-    		<cfset sBy = 'you' />
+            <cfset sBy = 'you' />
+            <cfset stUrlParams = { "edit": true, "user": session.dmsec.authentication.objectid, "answer": stObj.objectid } />
     	<cfelse>
     		<cfset stProfile = application.fapi.getContentType('dmProfile').getProfile(stObj.createdBy) />
     	    <cfset sBy = '#stProfile.firstname# #stProfile.lastname#' />
@@ -53,9 +37,12 @@
 
 <cfoutput>
     <div class="answer">
-    <p class="content">#answer#</p>
-    <p class="by">Answered by <span class="user-name">#sBy#</span></p>
-    <p class="on">Answered <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
+      <cfif sBy EQ "you">
+        <a class="edit" href="#application.fapi.getLink(objectid=stParam.question.objectid,stParameters=stUrlParams)###response">Edit</a>
+      </cfif>
+      <p class="content">#answer#</p>
+      <p class="by">Answered by <span class="user-name">#sBy#</span></p>
+      <p class="on">Answered <span>#application.fapi.prettyDate(stObj.datetimecreated, true)#</span></p>
     </div>
 </cfoutput>
 
