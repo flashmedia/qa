@@ -39,15 +39,21 @@
 </cfoutput>
 
 <cfoutput><div class="questions" data-type="recent"></cfoutput>
-<cfloop query="stLocal.qQuestionsRecent">
-  <skin:view typename="qaQuestion" objectid="#stlocal.qQuestionsRecent.objectid#" webskin="displayTeaserStandard" />
-</cfloop>
+<skin:pagination
+  query="#stLocal.qQuestionsRecent#" typename="qaQuestion"
+  r_stObject="stQuestion" paginationID="page"
+  recordsPerPage="10" pageLinks="10">
+  <skin:view typename="qaQuestion" objectid="#stQuestion.objectid#" webskin="displayTeaserStandard" />
+</skin:pagination>
 <cfoutput></div></cfoutput>
 
 <cfoutput><div class="questions hide" data-type="popular"></cfoutput>
-<cfloop query="stLocal.qQuestionsPopular">
-  <skin:view typename="qaQuestion" objectid="#stlocal.qQuestionsPopular.objectid#" webskin="displayTeaserStandard" />
-</cfloop>
+<skin:pagination
+  query="#stLocal.qQuestionsPopular#" typename="qaQuestion"
+  r_stObject="stQuestion" paginationID="page"
+  recordsPerPage="10" pageLinks="10">
+  <skin:view typename="qaQuestion" objectid="#stQuestion.objectid#" webskin="displayTeaserStandard" />
+</skin:pagination>
 <cfoutput></div></cfoutput>
 
 
