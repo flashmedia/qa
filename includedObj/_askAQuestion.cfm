@@ -5,6 +5,9 @@
 
 <cfparam name="form.question" default="" />
 <cfparam name="form.description" default="" />
+<cfparam name="form.category" default="" />
+
+<cfset businessCatId = application.fapi.getCatId('question_business') />
 
 <cfif isDefined('form.submit')>
 
@@ -13,6 +16,10 @@
 		stProperties.title = form.question;
 		stProperties.label = form.question;
 		stProperties.description = htmlEditFormat(form.description);
+
+		if( request.isWorkshop and len(form.category) ) {
+			stProperties.category = form.category;
+		}
 
 		stResult = application.fapi.getContentType('qaQuestion').createData(stProperties=stProperties);
 	</cfscript>
@@ -41,10 +48,15 @@
 					<textarea class="form-control" name="description" rows="3" placeholder="Place more detail about your question here...">#form.description#</textarea>
 				</div>
 
+				<cfif request.isWorkshop>
+					<div class="checkbox">
+						<label>Post to Business Category? <input type="checkbox" name="category" value="#businessCatId#"></label>
+					</div>
+				</cfif>
+
 				<button type="submit" class="btn btn-primary" name="submit">Post Question</button>
 
 			</fieldset>
 		</form>
 
 	</div></cfoutput>
-

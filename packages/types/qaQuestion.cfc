@@ -16,6 +16,11 @@
 		ftfieldset="Display" ftWizardStep="QA Question" />
 
 	<cfproperty
+		name="category" type="string" hint="Topic." required="no" default=""
+		ftSeq="16" ftwizardStep="QA Question" ftFieldset="Display" ftLabel="Categories"
+		ftType="Category" ftAlias="questions" />
+
+	<cfproperty
 		name="aViews" type="array" required="no"
 		ftType="array" ftJoin="qaView" />
 
